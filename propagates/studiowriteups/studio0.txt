@@ -1,0 +1,100 @@
+Your TA's name: Devin
+
+
+
+Students in your studio group:
+
+    Name        Student ID (begins with a 4)
+	
+1. Nina Woythaler 451411
+2. Cassie Bergman 443772
+3. Cathy Kuang 435043
+4. Arvind Radhakrishnan 438235
+5.
+6.
+
+Below each question, type in your short, to-the-point answers.
+
+Question A1: 
+	What do you see in both plots? 
+		The x values are the same
+	Are there any differences between the two?
+		Linear is a linear plot, quadratic is a quadratic plot
+	What could account for those differences?
+		Nested for loops in quadratic (O(n^2)), single for loop in linear (O(n)). As the value of n increases, the number of incrementations increases exponentially for quadratic, but remains constant in the linear function.
+	
+Discuss this (and all your responses for this assignment) with your TA as you go.
+
+Question A2:
+	Why do the times provided for Quadratic produce such a nice plot, while the original values of Linear did not?
+		For linear time, since the time between each incrementation is proportional to n, it takes less time to run, so the jumps between points look larger in comparison. With quadratic time, it takes a longer time to run, so the distance between the points is bigger and there is more time and more incrementations between jumps.
+	
+Question A3: 
+	From the runs you have tried so far, how does the placement of ticker.tick() calls affect the plots you see? 
+		Moving ticker.tick() to just inside the outer for loop in quadratic.java causes ticks to = size because it now increases linearly with n. The total time is lower because it runs ticker.tick() fewer times.
+	In particular, do the changes affect the shapes of the curves, the values plotted, or both?
+		Shape - goes from quadratic to linear
+	
+Question A4: 
+	In terms of n, how would you characterize, in the most simple terms, 
+	the time and ticks curves that have been generated so far?
+		Linear: n
+		Quadratic: n^2
+		
+Question A5: 
+	What would happen if you deleted all ticker.tick() calls in the innermost loop,
+	while leaving other calls to ticker.tick() that you just placed in run()?
+		Ticks did not increment because the for loops did not terminate until the program did.
+		
+	
+Question B1:
+	What do you see? How do the curves reflect the code inside AddsTwoNumbers?
+		As n changes, the value of ticks and time do not vary significantly because the number of operations does not change, there is always just one summation.
+	Do you think the value of n matters here in terms of the time it takes to perform the operation?
+		It does not, as said before.
+	Why or why not?
+		Because regardless of n, the number of operations stays the same.
+		
+Question B2:
+	What do the data and plot tell you about the time it takes to allocate an array of n integers?
+		The amount of time it takes to allocate a number of objects increases linearly as the number of objects increases.
+	Is it reasonable to say that the line of code
+
+ 		this.array = new int[this.n]
+ 		
+	takes a constant amount of time, independent of the value of this.n?
+		Yes
+	
+Question B3:
+	Do the ticks agree in shape with the time we measured in running the Allocates code?
+	
+Question B4:
+	Are the plots more similar to each other than before?
+	What does this tell you about how much time it takes to allocate an array of n integers?
+	
+Question B5:
+	Which group do you expect to finish first?
+	Can you formalize, in terms of n the amount of work (ticks)
+	that each group must do to write n in the form required for that group?
+
+	Both groups achieve the same result, namely the recording of an integer n.
+
+		Under what circumstances is the decimal notation more efficient than tally marks?
+		Under what circumstances is the tally mark notation more efficient than decimal notation?
+		
+	If you are not sure, take a look the link from the assignment web page.
+	
+Question D1:
+	How would you describe the curve you see?
+	As a team, think about possible polynomial functions that could generate such a curve.
+	Write your answer here:
+	
+Question E1:
+	What is the closed form solution for T(n)?
+	
+Question E2:
+	What is the closed form solution for T(n)?
+	Can you express this result in terms of n, as well as k?
+	Write your answer here:
+	
+	
