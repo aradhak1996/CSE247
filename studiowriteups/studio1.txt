@@ -8,7 +8,7 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
+1. Arvind Radhakrishnan 438235
 2.
 3.
 4.
@@ -23,26 +23,26 @@ What are the exact, closed-form formulas for the ticker counts in:
 
 	ProbA?   n   (I'm giving you this answer, make sure it agrees with what you saw)
 
-	ProbB?  
+	ProbB?  n^2/2 - n/2
 
-	ProbC?
+	ProbC?  n(n+1)/2
 
-	ProbD?
+	ProbD?  n^3/3 + n^2/2 + n/6
 
-	ProbE?
+	ProbE?  n^3/3 + n^2/2 + n/6 - n
 
 
 Part B
 
-1.  c =         n0 =
-2.  c =         n0 =
-3.  c =         n0 =
+1.  c =  1       n0 = 1
+2.  c =  1       n0 = 1000
+3.  c =  1       n0 = 1
 
 Part C
 
-1.
+1. 5000 = O(n^2) where c = 1, n0 = sqrt(5000)
 
-2.
-
+2. n = O(an + b) where c = 1, n0 = b/(1-a)
+ 
 Part D
 
