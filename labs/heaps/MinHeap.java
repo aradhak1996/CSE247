@@ -100,7 +100,7 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 *     decreased in value
 	 */
 	void decrease(int loc) {
-		int var = 2;
+		
 		while(loc > 1 && array[loc/2].getValue().compareTo(array[loc].getValue()) > 0) {
 			Decreaser<T> duplicate = array[loc];
 			array[loc] = array[loc/2];
