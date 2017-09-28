@@ -12,10 +12,13 @@ import timing.Ticker;
 public class LinkedListWithTail<T> implements List<T> {
 	
 	private ListNode<T> head;
+	private ListNode<T> tail;
 	private Ticker ticker;
 	
 	public LinkedListWithTail(Ticker ticker) {
-		this.head = null;   // nothing in our list yet
+		this.head = null; 
+		this.tail = null;
+		// nothing in our list yet
 		this.ticker = ticker;
 	}
 
@@ -39,6 +42,8 @@ public class LinkedListWithTail<T> implements List<T> {
 		else {
 			ListNode<T> q = new ListNode<T>();
 			q.value = thing;
+			tail = q;
+			tail = q.next;
 			//
 			// As given, this
 			// searches for the end of the list
@@ -66,6 +71,7 @@ public class LinkedListWithTail<T> implements List<T> {
 		int ans = 0;
 		for (ListNode<T> p = this.head; p != null; p = p.next) {
 			ans = ans + 1;
+			
 			ticker.tick();
 		}
 		return ans;

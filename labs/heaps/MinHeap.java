@@ -65,6 +65,10 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		//   Recall in class we reduced insert to decrease
 		//
 		// FIXME
+		array[size] = ans;
+		array[size].loc = size;
+		decrease(size);
+		ticker.tick();
 		//
 		return ans;
 	}
@@ -96,11 +100,25 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 *     decreased in value
 	 */
 	void decrease(int loc) {
+		
+		while(loc > 1 && array[loc/2].getValue().compareTo(array[loc].getValue()) > 0) {
+			Decreaser<T> duplicate = array[loc];
+			array[loc] = array[loc/2];
+			array[loc].loc = loc;
+			array[loc/2] = duplicate;
+			array[loc/2].loc = loc/2;
+			loc = loc/2;
+			decrease(loc);
+			
+		} 
+		
+		
 		//
 		// As described in lecture
 		//
 		
 	}
+		
 	
 	/**
 	 * Described in lecture, this method will return a minimum element from
@@ -111,14 +129,21 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 */
 	public T extractMin() {
 		T ans = array[1].getValue();
+		
+		
 		//
 		// There is effectively a hole at the root, at location 1 now.
 		//    Fix up the heap as described in lecture.
 		//    Be sure to store null in an array slot if it is no longer
 		//      part of the active heap
 		//
-		// FIXME
-		//
+		
+		array[1] = array[size];
+		array[1].loc = 1;
+		array[size] = null;
+		size = size - 1;
+		heapify(1);
+		ticker.tick();
 		return ans;
 	}
 
@@ -130,11 +155,68 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 * @param where the index into the array where the parent lives
 	 */
 	private void heapify(int where) {
-		//
-		// As described in lecture
-		//  FIXME
-		//
+		ticker.tick();
+		if((2*where + 1) <= array.length) {
+			
+			
+			if(array[2*where] == null) {
+				return;
+			}
+			
+			if(array[2*where + 1] == null && array[2*where] != null) {
+				if(array[where].getValue().compareTo(array[2*where].getValue()) > 0) {
+					Decreaser<T> whereCopy = array[where];
+					array[where] = array[2*where];
+					array[where].loc = where;
+					array[2*where] = whereCopy;
+					array[2*where].loc = 2*where;
+					whereCopy = null;
+					
+					
+				}
+				return;
+			}
+			
+			
+			T currentVal = array[where].getValue();
+			T leftChild = array[2*where].getValue();
+			T rightChild = array[2*where + 1].getValue();
+			
+			Decreaser<T> whereCopy = array[where];
+			
+			
+			if((currentVal.compareTo(leftChild) > 0) || (currentVal.compareTo(rightChild) > 0)) {
+				
+				int isRightMin = 1;
+				
+				if(rightChild.compareTo(leftChild) > 0) {
+					isRightMin = 0;
+				}
+				
+				if(isRightMin == 1) {
+					
+					array[where] = array[2*where + 1];
+					array[where].loc = where;
+					array[2*where + 1] = whereCopy;
+					array[2*where + 1].loc = 2*where + 1;
+					where = 2*where + 1;
+				}
+				
+				else{
+					array[where] = array[2*where];
+					array[where].loc = where;
+					array[2*where] = whereCopy;
+					array[2*where].loc = 2*where;
+					where = 2*where;
+				}
+				
+				heapify(where);
+				
+			}
+		}
 	}
+		
+	
 	
 	/**
 	 * Does the heap contain anything currently?
