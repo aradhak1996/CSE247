@@ -79,7 +79,17 @@ public class ShortestPaths {
 		//
 		startVertDist.decrease(startVertDist.getValue().sameVertexNewDistance(0));
 
-
+		while(!pq.isEmpty()) {
+			
+			VertexAndDist d = pq.extractMin();
+			for(Edge e : d.getVertex().edgesFrom()) {
+				if(d.getDistance() + weights.get(e) < map.get(e.to).getValue().getDistance()) {
+					map.get(e.to).decrease(map.get(e.to).getValue().sameVertexNewDistance(d.getDistance() + weights.get(e)));
+					toEdge.replace(e.to,e);
+				}
+			}
+			
+		}
 		//
 		// OK you take it from here
 		// Extract nodes from the pq heap
@@ -102,9 +112,12 @@ public class ShortestPaths {
 	public LinkedList<Edge> returnPath(Vertex endVertex) {
 		LinkedList<Edge> path = new LinkedList<Edge>();
 
-		//
-		// FIXME
-		//
+		Vertex v = endVertex;
+		
+		while(v != startVertex) {
+			path.addFirst(toEdge.get(v));
+			v = toEdge.get(v).from;
+		}
 
 		return path;
 	}

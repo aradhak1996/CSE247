@@ -1,4 +1,4 @@
-2package heaps;
+package heaps;
 
 import java.util.Random;
 import java.util.UUID;
