@@ -8,7 +8,7 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
+1. Arvind Radhakrishnan 438235
 2.
 3.
 4.
@@ -20,20 +20,49 @@ Substitution
 
 Using substitution, prove that the solution to T(n)=T(n-1)+10 is T(n)=10n
 
+T(n) = 10n
+T(n) = T(n-1) + 10
 
+-> 10n = 10(n-1) + 10
+-> 10n = 10n - 10 + 10    //10's cancel
+-> 10n = 10n
+-> verified
 
 Using substitution, show that T(n)=T(n-1)+10 is O(n-squared)
+
+T(n) = An^2 + Bn + C
+
+
+
+Substitute
+
+An^2 + Bn + C = A(n-1)^2 + B(n-1) + C
+
+Simplify the right side:
+
+A(n^2-2n+1)+Bn-B+C = An^2-2An+A+Bn-B+C = An^2+(B - 2A)n+(A-B+C)
+
+The two sides are equal when A = B/3. Since there exist A, B, and C for the two to be equal, T(n) = T(n-1_+10 is O(n^2)
+
+
 
 
 Recursion Tree Solutions
 
 1.
 
+T(n) = n^2 + 10
+
 
 2.
 
+T(n) = 2n^2 - 3n + 5
 
 3.
 
+T(n) = 21 + 7*log(n)/log(5)
 
 4.
+
+T(n) = 2n(n-1)
+

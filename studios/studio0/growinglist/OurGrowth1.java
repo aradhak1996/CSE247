@@ -9,8 +9,13 @@ public class OurGrowth1 extends Rarrays {
 	/**
 	 * Try some function you think will work here.
 	 */
+	
 	public int getNewSize() {
-		throw new Error("You must implement this function");
+		if(array.length >= 10) {
+			int newSize = (int)(array.length / 10);
+			
+		}
+		return newSize;
 	}
 	
 	public String toString() { return "Grow by our own function (1)"; }
