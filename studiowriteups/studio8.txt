@@ -8,7 +8,7 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
+1. Arvind Radhakrishnan 438235
 2.
 3.
 4.
@@ -18,54 +18,80 @@ Students in your studio group:
 
 What distribution do you see plotted (in the histogram or an XY Scatter plot) for Color hashcodes?
 
-
+	It is close to uniformly distributed, there aren't many drastic extrema
 
 If the distribution were not uniform, what would the plot look like?
 
+	The plot would be much more fluctuating in the value of the hashcode, there would be higher peaks and lower troughs
+
 How many Color objects are added to the set?
+
+	Three
 
 How many objects are contained in the set after all Color objects are added?
 
+	Two
+
 Why are the above two numbers different?
 
-
+	The color object with coordinates (0,0,0) has the same hashcode as Color.BLACK. So it only appears once in the set.
 
 
 
 Are the Point objects' hash values distributed uniformly?
 
+	Yes
+
+	
 
 How many Point objects are added to the set?
+
+	Two
 
 
 How many Point objects are in the set after all Point objects are added?
 
+	Two
+
 
 What is wrong with this result?
 
+	The point objects should satisfy .equals, and therefore should only appear once since their hashcodes are equal
+
 Based on the code you see in Point, how is equality determined between two Point objects?
+
+	If the two are of the same class, are equal objects, and have the same value, they are determined equal
 
 
 Looking at the output in the console window, how does the implementation of hashCode() for Point explain the bad behavior in the set of Points?
 
-
+	The random numbers aren't spread out apart enough
+	
 How well does your hash function fare in terms of uniformly distributed hash values for the random point objects?
 
-
+	It works well
 
 As a team, try out some ideas for Pancake's hashCode() implementation. Record your best idea in the studio8.txt file (here!):
 
-
+	if(wheat):
+		hash = 30*hash
+	else:
+		hash = -30*hash
+	
 Based on the hashCode() implementation shown to you on the web page, answer the following questions:
 
 If two Pancake objects equal each other, will they get the same hashCode() results?
+	
+	Yes
 
 How good of a job does the implementation do of obtaining uniform distributions of hashCode() values for two Pancake objects that do not equal each other?
-
+	
+	Not a very good job since it doesn't spread out the values very well
 
 
 Just by inspection of the hashCode() method on the web page, state two Pancakes that are different yet have the same hashCode() value.
 
+	
 
 Your best hashCode() for Pancake (paste the method here please):
 
